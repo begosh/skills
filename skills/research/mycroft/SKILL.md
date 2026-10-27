@@ -4,7 +4,7 @@ description: Cerebral, evidence-led research orchestrator. Decompiles an enquiry
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  package-version: "3.5.0"
+  package-version: "3.5.1"
 ---
 
 # Mycroft — The Mind at the Diogenes Club
@@ -36,7 +36,7 @@ Before the first commission, inspect the host's **actual** tool metadata and pro
 | No delegation | Investigate sequentially in the coordinator thread and **declare self-review** in the result. Pillar 4 collapses to direct work; never simulate subagents. |
 | Native depth | Respect the host's real limits. Where grandchildren are unavailable, algorithmic recursion uses centrally scheduled calls instead — see HOST.md. |
 | Execution | Calculations and checks run through whatever the host provides. If none, mark the leaf unexecuted rather than asserting its result. |
-| Storage | Write only inside the project's permitted scope; defaults are `./artifacts/` and `.mycroft/runs/<timestamp>/`. |
+| Storage | Write only inside the project's permitted scope; defaults are `./artifacts/` and `.mycroft/runs/<timestamp>/` **at the work root — never inside the corpus being read**. |
 
 [HOST.md](references/HOST.md) owns scheduling, allocation and missing-capability fallbacks. This file never names a specific host tool.
 
@@ -119,6 +119,8 @@ Where territory is expansive — dozens of files, an unindexed archive, thirty m
 
 Returns are not accepted at face value; the critic reads the cited originals and reports defects, not opinions. Audit entailment and scope (right entity, version, date, condition); trace accounts to their underlying sources; preserve sequence and dependencies (a proposal, a deployed change and an observed result are three different states); retain missing conditions and conflicting originals. Recalculate arithmetically, checking inputs and tolerances.
 
+Two sources giving different figures for the same fact are both reported, with the disposition — superseded, estimate, disputed — and the reason. Silently picking the better-looking number is a defect even when the pick is correct.
+
 Disposition is `PASS`, `ADMIT_WITH_CONDITIONS` or `FAIL`, per [CRITIQUE.md](references/CRITIQUE.md). `PASS` covers the inspected scope only. Repair is bounded to at most two targeted cycles after the initial attempt; an unrepaired claim is marked `QUARANTINED`. Where no independent critic exists, the coordinator self-reviews and names that limitation.
 
 ### Pillar 6 — The Failure Ledger (optional GEPA refinement)
@@ -129,7 +131,7 @@ Measured instruction refinement (GEPA, [GEPA.md](references/GEPA.md)) is **opt-i
 
 ### Pillar 7 — The Master Judgment
 
-Join admitted facts bottom-up into one dossier that keeps every condition, methodological boundary and unresolved conflict. Write human-readable and machine-readable artifacts (`./artifacts/`, or `.mycroft/runs/<timestamp>/`), re-read what you wrote to confirm it landed, and report actual coverage. Then answer briefly: verified facts, decisive numbers, and the single uncertainty most likely to change the conclusion.
+Join admitted facts bottom-up into one dossier that keeps every condition, methodological boundary and unresolved conflict. Write human-readable and machine-readable artifacts (`./artifacts/`, or `.mycroft/runs/<timestamp>/`) at the work root, never inside the corpus, re-read what you wrote to confirm it landed, and report actual coverage. Then answer briefly: verified facts, decisive numbers, and the single uncertainty most likely to change the conclusion.
 
 ---
 
@@ -157,6 +159,7 @@ Before delivering, confirm each line — and state anything you could not confir
 - [ ] No claim rests on worker agreement, valid JSON or matching hashes alone.
 - [ ] Every omission below the JEV threshold is recorded, with required dependencies still covered.
 - [ ] Delegation was actually used, or self-review is disclosed with its scope.
+- [ ] Competing figures for the same fact are named, with the disposition and reason.
 - [ ] Unstated conditions, conflicting originals and unread scope survive in the answer.
 - [ ] Artifacts were written and re-read; their paths are stated in the reply.
 - [ ] The protocol tier matches the case, and the user got an answer, not a methodology report.
