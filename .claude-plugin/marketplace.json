@@ -1,0 +1,25 @@
+{
+  "name": "begosh",
+  "owner": {
+    "name": "Jonas Aspman",
+    "url": "https://github.com/begosh"
+  },
+  "description": "Jonas Aspman's agent skills for research, orchestration, and autonomous systems.",
+  "plugins": [
+    {
+      "name": "begosh-skills",
+      "source": "./",
+      "description": "Agent skills for autonomous research, deep architecture, and evidence synthesis.",
+      "category": "research",
+      "keywords": [
+        "research",
+        "orchestrator",
+        "subagents",
+        "triad",
+        "dspy",
+        "jev",
+        "gepa"
+      ]
+    }
+  ]
+}

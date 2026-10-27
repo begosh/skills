@@ -1,0 +1,21 @@
+{
+  "name": "begosh-skills",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agent skills for autonomous research, deep architecture, and evidence synthesis.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/begosh/skills"
+  },
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "agent-skills",
+    "research",
+    "orchestrator",
+    "triad",
+    "dspy",
+    "jev",
+    "gepa"
+  ]
+}

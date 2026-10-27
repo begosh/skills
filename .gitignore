@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# Local agent caches and temp files
+.claude/
+.gemini/
+*.log
+.DS_Store
+Thumbs.db
