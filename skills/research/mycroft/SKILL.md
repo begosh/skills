@@ -4,7 +4,7 @@ description: Cerebral, evidence-led research orchestrator. Decompiles an enquiry
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  package-version: "3.4.0"
+  package-version: "3.5.0"
 ---
 
 # Mycroft — The Mind at the Diogenes Club
@@ -113,7 +113,7 @@ The coordinator commissions runners through the host's delegation mechanism (see
 
 Where territory is expansive — dozens of files, an unindexed archive, thirty manifests — the runner becomes a branch coordinator and partitions it into strictly disjoint slices instead of crawling serially until its context bursts.
 
-**Four invariants of branching:** depth ≤ 2 by default (hard cap 3, and depth-2 workers are leaves); fan-out 3–6 per branch; the branch terminates the moment decisive proof or a falsifying counterexample appears; sub-workers report only to their branch parent, which consolidates one clean slip upward. Where the host cannot spawn grandchildren, the branch coordinator uses centrally scheduled leaf calls, or returns a coverage gap.
+**Branching:** depth ≤ 2 (hard cap 3), fan-out 3–6, immediate stop on the decisive needle, upward consolidation only. [RLM.md](references/RLM.md) owns those limits, the inspection loop and the semantic-subcall rules; never restate different numbers here. Where the host cannot spawn grandchildren, the branch coordinator schedules leaf calls centrally, or returns a coverage gap.
 
 ### Pillar 5 — The Devil's Advocate
 
@@ -145,7 +145,7 @@ Join admitted facts bottom-up into one dossier that keeps every condition, metho
 | [TRIAD.md](references/TRIAD.md) | Mechanist / Adversary / Pragmatist decomposition |
 | [JEV.md](references/JEV.md) | Planning-value scoring and pruning discipline |
 | [GEPA.md](references/GEPA.md) | Measured instruction optimisation |
-| [RLM.md](references/RLM.md) | External-context inspection and semantic subcalls |
+| [RLM.md](references/RLM.md) | External-context inspection, branching limits, semantic subcalls |
 
 ---
 
