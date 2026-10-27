@@ -14,14 +14,14 @@ Record outcome, constraints, source/entity/date scope, initial inputs, component
 
 Each commission carries one checkable objective and bounded scope:
 
-- ID, operation and objective.
-- Exact inputs, source/entity/date scope and allowed access/writes.
-- Dependencies, expected return and acceptance check.
+- ID, operation (`clarify`, `retrieve`, `extract`, `calculate`, `compare`, `check`; or `split` for non-atomic composite parent nodes) and objective.
+- Exact inputs (strictly bounded: maximum 1–2 items for atomic leaves), source/entity/date scope and allowed access/writes.
+- Dependencies, expected return (strictly bounded: maximum 100–150 words of structured facts/numbers) and checkable acceptance check.
 - Work allocation, including any requested output bound.
 
-Useful operation labels are `extract`, `retrieve`, `calculate`, `compare`, `check` and `investigate`. Keep a coherent enquiry together. [HOST.md](HOST.md) owns allocation and scheduling policy.
+Atomic leaf operations are strictly `clarify`, `retrieve`, `extract`, `calculate`, `compare`, and `check`. Composite operations must use `split` and be recursively decompiled further. Broad enquiries are never admitted as atomic tasks. [HOST.md](HOST.md) owns allocation and scheduling policy.
 
-**Ready:** The commissioned investigator can identify its inputs, permitted work, expected evidence and acceptance criterion.
+**Ready:** The commissioned runner can identify its inputs, permitted work, expected evidence, output cap, and acceptance criterion.
 
 ## WorkerResult
 
