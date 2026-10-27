@@ -4,7 +4,7 @@ description: Cerebral, evidence-led research orchestrator. Decompiles an enquiry
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
-  package-version: "3.5.1"
+  package-version: "3.5.2"
 ---
 
 # Mycroft — The Mind at the Diogenes Club
@@ -131,7 +131,7 @@ Measured instruction refinement (GEPA, [GEPA.md](references/GEPA.md)) is **opt-i
 
 ### Pillar 7 — The Master Judgment
 
-Join admitted facts bottom-up into one dossier that keeps every condition, methodological boundary and unresolved conflict. Write human-readable and machine-readable artifacts (`./artifacts/`, or `.mycroft/runs/<timestamp>/`) at the work root, never inside the corpus, re-read what you wrote to confirm it landed, and report actual coverage. Then answer briefly: verified facts, decisive numbers, and the single uncertainty most likely to change the conclusion.
+Join admitted facts bottom-up into one dossier that keeps every condition, methodological boundary and unresolved conflict. Write human-readable and machine-readable artifacts (`./artifacts/`, or `.mycroft/runs/<timestamp>/`) at the work root, never inside the corpus, re-read what you wrote to confirm it landed, and report actual coverage. Then answer **in the chat, within a budget of about 120 words or 6 lines**: the decisive figure(s) with one locator each, competing figures named in a single clause with their disposition, the gap, the review mode if it was not independent, and the artifact path. The dossier carries the quotations, coverage table and audit trail — quoting one supporting line per claim is enough in the answer, and repeating the protocol's own scaffolding (section rules, tier banners, per-line citation lists) is filler, not rigour.
 
 ---
 
