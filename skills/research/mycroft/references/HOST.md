@@ -8,6 +8,23 @@ Inspect the actual source routes, delegation tool, worker slots, agent-role rest
 
 A behavioral read-only assignment is not an enforced filesystem/network sandbox. Bind code and source access to the host's actual permission boundary.
 
+## Capability binding
+
+Four capabilities decide the shape of a case. Establish each from the host's live tool metadata and project instructions before commissioning; treat the right-hand column as illustrative only, and verify rather than assume.
+
+| Capability | Question to answer | Typical mechanisms (verify per host) |
+| --- | --- | --- |
+| Delegation | Can this host spawn a scoped child with its own context? | A subagent/Task-style tool, a delegation call, a worker pool, an external runner process, or none |
+| Concurrency | How many children run at once, and is there a native depth limit? | Parallel-call slots, native recursion, or a flat team where recursion must be emulated by scheduled calls |
+| Execution | Can a child run code and read retained state? | A shell/code tool with persistent or ephemeral state, or no execution at all |
+| Storage | Where may outputs be written? | Project-relative artifact directory, a session run directory, or read-only |
+
+Name the binding in the case record: "delegation via X; concurrency N; execution Y; writes to Z". An unverified route is not a capability — test it on the first commission and fall back explicitly if it fails.
+
+## Self-review disclosure
+
+Where delegation is unavailable, or the only reviewer would be the investigator itself, the coordinator performs the work directly and says so. Report the review mode and its scope ("self-reviewed; no independent critic was available"), because a self-review can find arithmetic slips and missing locators but cannot detect the investigator's own framing error. Never present a self-review as independent corroboration.
+
 ## Commission and schedule
 
 Give each enquiry one objective, exact evidence scope/inputs, allowed access/writes, dependencies, acceptance criterion, expected return and work allocation. Use [CONTRACTS.md](CONTRACTS.md) for structured handoffs.
