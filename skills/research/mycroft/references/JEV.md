@@ -1,42 +1,21 @@
-# Mycroft JEV Gating & Pruning Protocol
+# JEV — Planning value
 
-JEV (Judgment, Evidence, Value) controls the focus and efficiency of the DAG, preventing runaway task sprawl and token waste.
+Use the Joint Expected Value heuristic for overlapping or low-value optional enquiries.
 
----
+## Protect, score and choose
 
-## 1. The Mathematical Formula
+Preserve required evidence, its prerequisites, necessary review/synthesis, material conflicts and missing-condition disclosures before scoring. Protect the dependency closure. Unavailable required evidence stays an explicit gap.
 
 ```text
-JEV = Criticality × (1 - 0.5 × Redundancy)
+JEV = criticality × (1 - 0.5 × redundancy)
 ```
 
-Where:
-* **Criticality** $\in [0.0, 1.0]$: How essential is this finding to the core deliverable requested by the user?
-  - `1.0`: Core objective or direct prerequisite.
-  - `0.5`: Informative supporting context.
-  - `0.1`: Tangential trivia or secondary background.
-* **Redundancy** $\in [0.0, 1.0]$: How much does this task overlap with existing or higher-priority tasks?
-  - `0.0`: Completely unique inquiry.
-  - `0.5`: Moderate overlap with an adjacent specialist.
-  - `1.0`: Duplicate or subsumed by another task.
+Both inputs are estimates in [0, 1]. Criticality measures decision importance; redundancy measures overlap with accepted evidence or planned enquiries. The skill's configurable 0.30 threshold is a planning default, not an empirically validated constant or factual-confidence measure.
 
----
+Optional branches below the threshold may be omitted after checking dependencies and answer coverage. For example, criticality 0.4 and redundancy 0.8 produce 0.24. The coordinator owns the decision.
 
-## 2. Pruning Threshold
+**Pruning complete:** Required dependencies remain covered, and omitted work cannot change a required conclusion without appearing as a gap.
 
-* **Standard Threshold**: `0.30`.
-* Any prospective task with a final score strictly below `0.30` is **PRUNED** before dispatch.
-* Pruned tasks are recorded in the run journal as `PRUNED_JEV` with their score and rationale.
+## Record
 
----
-
-## 3. The Protected & Exempt Invariant
-
-Certain nodes are **JEV Protected** and exempt from comparative scoring. They can **NEVER** be pruned:
-
-1. **Root Evidence Bindings**: Primary source extraction tasks explicitly named by the user.
-2. **Explicit Disclaimers & Gaps**: Header disclaimers, conflict flags, and missing information declarations.
-3. **The Critic Node**: The adversarial audit is mandatory.
-4. **The Synthesizer**: The final assembly step is mandatory.
-
-*Rule*: Even if an LLM heuristic claims a disclaimer is "redundant," protected status overrides the score. Truth and safety invariants cannot be pruned to save cost.
+When used, record task IDs, estimates, calculated scores, protected status, retained/omitted decisions and concise grounds in the [case record](EVIDENCE.md#records-and-continuation).

@@ -48,25 +48,22 @@ Copy or link the skill into your local skills directory:
 
 | Skill | Category | Description |
 | :--- | :--- | :--- |
-| **[mycroft](skills/research/mycroft/SKILL.md)** | `research` | Cerebral, evidence-led research orchestrator driven by native subagents. Uses Triad decomposition, DSPy typed contracts, JEV pruning, adversarial critique, and GEPA learning. |
+| **[mycroft](skills/research/mycroft/SKILL.md)** | `research` | Evidence-led research with source discovery, bounded specialists, Triad decomposition and review; optional RLM and measured GEPA. |
 
 ---
 
-## Highlight: Mycroft — The Omniscient Orchestrator
+## Highlight: Mycroft — The mind at the club
 
-Mycroft Holmes sits in the armchair of the Diogenes Club and views the entire system. He does not run around doing hasty legwork; he orchestrates investigations through specialist subagents ("Sherlocks"), enforces rigorous evidence discipline, challenges all claims adversarially, and synthesizes hardened, authoritative dossiers.
+Mycroft coordinates source discovery, bounded specialist enquiries, evidence review and synthesis. The skill is Markdown; the active host supplies agents, tools, execution and storage.
 
-### Core Architecture
+### Core workflow
 
-1. **Autonomous Momentum**: Only pauses if fundamentally uncertain about the user's intent. Otherwise advances autonomously from problem framing through specialist dispatch, critique, and synthesis to publication.
-2. **Triad Decomposition**: Eliminates anchoring bias on complex problems by dispatching three parallel viewpoints:
-   - *The Mechanist*: Ground truth, implementation constraints, mechanics.
-   - *The Adversary*: Failure modes, stress tests, edge cases, vulnerabilities.
-   - *The Pragmatist*: Pareto trade-offs, real-world utility, operational simplicity.
-3. **DSPy Typed Contracts**: Specialists report strictly structured leaf contracts (`findings`, `sources`, line-level `claims`, explicit `gaps`). Uncorroborated consensus is rejected; claims require primary source locators and exact excerpts.
-4. **JEV Decision Gating**: Joint Expected Value gating ($JEV = Criticality \times (1 - 0.5 \times Redundancy)$) prunes tasks below `0.30` while strictly preserving disclaimers and unstated condition gaps.
-5. **The Diogenes Review & Bounded Repair**: An independent Critic subagent executes a 4-point adversarial audit, allowing up to 2 bounded repair cycles before quarantining unverified claims.
-6. **Durable Publication**: Emits immutable records under `.mycroft/runs/<timestamp>/` (`report.md`, `report.json`, `operations.jsonl`) and reflects critique defects as Failure Packets for offline GEPA Pareto optimization.
+1. **Frame and discover**: Define the decision, completion criterion and evidence horizon. Read supplied sources and find additional relevant originals within the requested scope.
+2. **Choose useful enquiries**: Investigate directly, commission a critic, or use Mechanist, Adversary and Pragmatist viewpoints for competing decompositions. Schedule through the host's actual tools, available slots and shared case allowance.
+3. **Return source-linked findings**: Portable task/result contracts preserve excerpts, exact locators, evidence status, contradictions and gaps. Structured validation and source entailment are separate checks.
+4. **Review and repair**: Challenge consequential claims, retain admission conditions and use bounded targeted repair. Disclose self-review or unresolved required evidence.
+5. **Use advanced modes when justified**: Optional JEV guides planning value; RLM performs external-context inspection, semantic subcalls and aggregation; explicitly requested GEPA executes measured instruction comparisons and candidate selection.
+6. **Deliver observable results**: Save project-appropriate reports and case records, verify artifacts and report actual coverage, checks and remaining uncertainty. Saved files support continuation; execution guarantees come from the host.
 
 ---
 

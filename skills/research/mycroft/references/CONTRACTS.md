@@ -1,147 +1,48 @@
-# Mycroft Contracts & Typed Signatures
+# Task and evidence contracts
 
-All communication between Mycroft and his specialist subagents is strictly typed. Chatty conversational preambles are prohibited; subagents exchange structured, schema-validated JSON payloads.
+Use these contracts for delegated handoffs or machine-readable artifacts. Direct enquiries can keep equivalent prose. This reference defines what a useful handoff contains; [SCHEMAS.json](SCHEMAS.json) defines JSON structure for TaskBrief, WorkerResult and CriticVerdict.
 
----
+**JSON validation:** Load the selected schema from SCHEMAS.json and validate the actual object before reporting schema validation. Then perform the semantic checks below and source [review](CRITIQUE.md).
 
-## 1. TaskBrief Signature (Phase 1 Output)
+## TaskBrief
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "TaskBrief",
-  "type": "object",
-  "required": ["outcome", "constraints", "components", "evidence_needs", "missing_information"],
-  "properties": {
-    "outcome": { "type": "string", "maxLength": 500 },
-    "constraints": {
-      "type": "array",
-      "items": { "type": "string", "maxLength": 300 }
-    },
-    "components": {
-      "type": "array",
-      "items": { "type": "string", "maxLength": 300 }
-    },
-    "evidence_needs": {
-      "type": "array",
-      "items": { "type": "string", "maxLength": 300 }
-    },
-    "missing_information": {
-      "type": "array",
-      "items": { "type": "string", "maxLength": 300 }
-    }
-  }
-}
-```
+Record outcome, constraints, source/entity/date scope, initial inputs, components, evidence needs, missing information and completion criterion. Extend inputs through authorized source discovery.
 
----
+**Ready:** The criterion identifies a checkable answer, and missing prerequisites are explicit.
 
-## 2. Leaf TaskContract Signature (DAG Node)
+## TaskContract
 
-Each leaf task dispatched to a subagent has exactly one operation and bounded scope:
+Each commission carries one checkable objective and bounded scope:
 
-* **Supported Operations**:
-  - `extract`: Bounded field extraction from supplied text.
-  - `retrieve`: Focused document/code lookup (max 1 target).
-  - `calculate`: Deterministic numeric formula over verified inputs.
-  - `compare`: Explicit multi-faceted comparison between 2 findings.
-  - `check`: Binary predicate test against primary evidence (`PASS`, `FAIL`, `REVIEW`).
+- ID, operation and objective.
+- Exact inputs, source/entity/date scope and allowed access/writes.
+- Dependencies, expected return and acceptance check.
+- Work allocation, including any requested output bound.
 
-```json
-{
-  "id": "task.prep.mixing",
-  "operation": "extract",
-  "objective": "Extract exact mixing and kneading durations, actions, and unstated temperatures from L03-L04.",
-  "inputs": ["fixture:pizza_extraction_source"],
-  "target_lines": ["L03", "L04"],
-  "expected_output": "Chronological mixing and kneading actions with explicit gaps for unstated temperatures.",
-  "acceptance_check": "Preserves L03-L04 order; captures 2m mix and 8m knead; marks temperatures as unstated; invents no extra details.",
-  "max_words": 100
-}
-```
+Useful operation labels are `extract`, `retrieve`, `calculate`, `compare`, `check` and `investigate`. Keep a coherent enquiry together. [HOST.md](HOST.md) owns allocation and scheduling policy.
 
----
+**Ready:** The commissioned investigator can identify its inputs, permitted work, expected evidence and acceptance criterion.
 
-## 3. WorkerResult Signature (Specialist Output)
+## WorkerResult
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "WorkerResult",
-  "type": "object",
-  "required": ["task_id", "answer", "claims", "gaps"],
-  "properties": {
-    "task_id": { "type": "string" },
-    "answer": { "type": "string", "maxLength": 1000 },
-    "sources": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["id", "locator"],
-        "properties": {
-          "id": { "type": "string" },
-          "locator": { "type": "string" },
-          "retrieval_type": { "type": "string" }
-        }
-      }
-    },
-    "claims": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["claim_text", "source_id", "line_citations"],
-        "properties": {
-          "claim_text": { "type": "string" },
-          "source_id": { "type": "string" },
-          "line_citations": { "type": "array", "items": { "type": "string" } },
-          "exact_quote": { "type": "string" }
-        }
-      }
-    },
-    "gaps": {
-      "type": "array",
-      "items": { "type": "string" }
-    }
-  }
-}
-```
+Return `task_id`, `status`, `answer`, `covered_scope`, `sources`, `claims`, `gaps` and `checks`. Optional next-enquiry and observed-usage fields support continuation.
 
----
+Each source carries an ID, locator and read status. Each claim carries an ID, claim text, [evidential status](EVIDENCE.md#claims-and-captures) and nonempty support with source ID, precise locator and exact excerpt. Inferences include verified inputs and derivation; conditions belong with the affected claim.
 
-## 4. CriticVerdict Signature (The Diogenes Gate)
+Check source/claim ID uniqueness and support resolution. Supporting sources must have been read sufficiently, and excerpts/locators must match that captured version. Complete factual conclusions need supported claims. Empty findings are valid for failed/blocked/partial execution when the unmet scope is explicit.
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "CriticVerdict",
-  "type": "object",
-  "required": ["verdict", "issues", "quarantined_claims"],
-  "properties": {
-    "verdict": { "type": "string", "enum": ["PASS", "FAIL", "ADMIT_WITH_CONDITIONS"] },
-    "issues": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["target_task", "severity", "defect", "remedy"],
-        "properties": {
-          "target_task": { "type": "string" },
-          "severity": { "type": "string", "enum": ["MATERIAL", "MINOR"] },
-          "defect": { "type": "string" },
-          "remedy": { "type": "string" }
-        }
-      }
-    },
-    "quarantined_claims": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["claim_text", "reason"],
-        "properties": {
-          "claim_text": { "type": "string" },
-          "reason": { "type": "string" }
-        }
-      }
-    }
-  }
-}
-```
+**Return ready:** Every consequential conclusion has inspectable support or a named gap, and coverage, status, checks and usage describe performed work.
+
+## CriticVerdict
+
+Return verdict, review mode/scope, concrete issues/remedies, admission conditions and quarantined claim IDs/reasons.
+
+`PASS` applies to inspected scope. `ADMIT_WITH_CONDITIONS` requires actual retained conditions. `FAIL` requires concrete defects or unmet review requirements. [CRITIQUE.md](CRITIQUE.md) owns dispositions and repair policy.
+
+**Verdict ready:** Every material defect identifies its affected finding and consequence; accepted conditions can be carried into synthesis.
+
+## Publication and event records
+
+Follow the requested project format. A structured dossier contains brief, accepted/qualified claims, sources, gaps, execution status, checks and artifact locators.
+
+An event records sequence, phase, actor/enquiry, action, concise grounds, actual status and relevant locators; timestamps come from observation. [EVIDENCE.md](EVIDENCE.md#records-and-continuation) owns logging, saved-artifact checks and continuation.

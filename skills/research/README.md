@@ -1,7 +1,7 @@
 # Research & Orchestration Skills
 
-Agent skills designed for deep investigation, evidence validation, and multi-agent synthesis.
+Agent skills for source discovery, evidence validation and specialist investigation.
 
 ## Promoted Skills
 
-- **[mycroft](./mycroft/SKILL.md)**: Cerebral, evidence-led research orchestrator driven by native subagents. Uses Triad decomposition, DSPy typed contracts, JEV pruning, adversarial critique, and GEPA learning.
+- **[mycroft](./mycroft/SKILL.md)**: Evidence-led research with bounded specialist enquiries, Triad decomposition and review. Includes optional RLM corpus investigation and measured GEPA instruction optimization.
