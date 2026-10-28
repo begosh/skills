@@ -1,6 +1,6 @@
-# RLM — external-context inspection and bounded branching
+# RLM — recursive evidence branches and external-context inspection
 
-Read this reference when the evidence is too large for one context window: a corpus of documents, a deep directory tree, an archive, a ledger with hundreds of entries. It owns two things the body only summarises — the **external-context inspection loop** and the **normative branching limits**.
+Read this reference before dispatching a composite evidence branch or inspecting evidence too large for one context window. Mycroft first decomposes the enquiry into concrete evidence branches. A senior runner may then split its assigned branch into atomic child questions or disjoint corpus slices. This reference owns that recursive delegation pattern, the **external-context inspection loop**, and the **normative branching limits**; it does not assert that a separate RLM runtime or model training was executed.
 
 The file is prose, like the rest of the package. Where the host can spawn children, branching uses them; where it cannot, the same loop runs on centrally scheduled leaf calls and is recorded as algorithmic recursion ([HOST.md](HOST.md)).
 
@@ -8,13 +8,20 @@ The file is prose, like the rest of the package. Where the host can spawn childr
 
 | Signal | Neutral response |
 | --- | --- |
+| A scoped evidence branch contains independent child questions whose consolidation belongs together | Senior runner creates explicit atomic child contracts within its branch allocation |
 | Corpus exceeds one readable context | Index it, then inspect slices rather than reading it whole |
 | Search space is wide and sparse (one decisive fact in thousands of rows) | Partition into disjoint slices; stop the branch on the first decisive hit |
 | Answer requires counting or comparing across many items | Aggregate by deterministic script, not by reading each item into the context |
 | Host offers native recursion | Use it, within the depth and fan-out limits below |
-| Host offers no recursion | Emulate: the coordinator schedules leaf calls and consolidates them |
+| Host offers no recursion | Coordinator schedules permitted leaf calls; the senior runner consolidates its branch |
 
-If a single authoritative source answers the question, none of this applies — that is a Direct case in the body's case-sizing table.
+If a few direct leaves answer the question without useful parent consolidation, dispatch those leaves directly. Use a senior branch when it reduces root context or coordinates a genuinely composite enquiry; do not manufacture a large archive or sub-workers for a theatrical scene.
+
+## Branch handoff and visible fan-out
+
+Mycroft supplies the branch objective, source territory, required answer and stopping condition. The senior runner records `operation: split`, names its child leaves and verifies they are independently bounded before dispatch. A child performs one primitive; the senior consolidates evidence and gaps upward. Mycroft retains ownership of the overall question and any change in scope.
+
+In the story Wiggins calls the senior runner, who whistles for named sub-runners and assigns their questions or slices. Announce the planned split before dispatch, then identify the children actually commissioned and those still queued. Native branching uses real child calls whenever host permissions and reserved capacity allow; central scheduling is a disclosed fallback. [HOST.md](HOST.md) owns slot allocation and [LONDON.md](LONDON.md) supplies examples.
 
 ## The inspection loop
 
@@ -30,14 +37,14 @@ If a single authoritative source answers the question, none of this applies — 
 
 | Invariant | Rule | On breach |
 | --- | --- | --- |
-| **Depth ceiling** | Coordinator is depth 0, commissioned runners depth 1, their sub-workers depth 2. Default maximum is 2; hard cap 3. Depth-2 workers are leaves. | A depth-2 worker that wants to branch returns a coverage gap instead |
+| **Depth ceiling** | Coordinator is depth 0, commissioned runners depth 1, their sub-workers depth 2. Default maximum is 2; hard cap 3 only when the case plan explicitly declares it and the host permits it. Workers at the declared ceiling are leaves. | A worker at the declared ceiling returns a coverage gap; no worker raises its own limit |
 | **Fan-out budget** | 3–6 sub-workers per branch, never an unbounded swarm | Partition into successive batches rather than one wide wave |
 | **Early needle hit** | Stop the branch on decisive proof or a falsifying counterexample | Cancel or early-exit pending siblings; record what was not inspected |
 | **Upward consolidation** | Sub-workers report only to their branch parent | Reject any return addressed to the coordinator from depth 2 |
 
 Fan-out multiplies: an unconstrained tree costs $O(\text{fan-out}^{\text{depth}})$ calls. State the planned call budget before dispatching, and stop when it is spent.
 
-There is no separate "Wiggins" tier. A runner that delegates *is* the branch coordinator for its branch; naming it does not add a depth level, and saying so prevents the four invariants from being read as five roles.
+There is no separate technical "Wiggins" tier. He voices the dispatch function at Mycroft's level. A runner that delegates is the branch coordinator for its branch; the scene does not add another execution context or depth level.
 
 ## Semantic subcalls
 
@@ -47,6 +54,6 @@ Where the host forbids grandchildren, a runner returns a semantic request to the
 
 ## Records
 
-Keep the slice index, the dispatch/return status per enquiry, the early-termination point, aggregate calculations, uncovered slices and the observed call count. A branch that was planned but not executed is an unmet requirement, not a completed inspection.
+Keep the child-question plan or slice index, dispatch/return status per enquiry, early-termination point, aggregate calculations, uncovered scope and observed cumulative call count. Descendants and repairs share the branch and case allowance; a new task ID is not a new allowance. A branch that was planned but not executed is an unmet requirement, not a completed inspection. Record actual parent/child relationships so the narrative fan-out can be checked against tool activity.
 
 **Inspection complete:** every declared slice has an inspected, failed or uncovered status; aggregates are computed from records; and the consolidated return states its coverage.

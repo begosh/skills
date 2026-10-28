@@ -31,11 +31,17 @@ Only when delegation is unavailable, disallowed, or fails does the coordinator i
 
 Give each enquiry one objective, exact evidence scope/inputs, allowed access/writes, dependencies, acceptance criterion, expected return and work allocation. Use [CONTRACTS.md](CONTRACTS.md) for structured handoffs.
 
-Send the minimum useful context and share versioned evidence to avoid repeated retrieval. Commission independent ready work within observed slots, batch wider plans and wait for prerequisite returns. Reuse investigators for related follow-ups when useful. Preserve disagreements for evidence review.
+Mycroft owns the initial question decomposition and its required outputs. Planning perspectives advise that decision; they are not evidence runners. Close any delegated planning critique when its plan is accepted, then commission fresh investigative contexts with concrete mission names. Reuse an investigator for related work inside its evidence branch, rather than cycling planning personas through unrelated searches.
+
+Send the minimum useful context and share versioned evidence to avoid repeated retrieval. Commission independent ready work within observed slots, batch wider plans and wait for prerequisite returns. Preserve disagreements for evidence review.
+
+For a composite branch, use an explicit `split` commission: the senior runner owns named atomic child contracts, bounded source territory, consolidation and a branch-wide allocation. Prefer native child dispatch when permitted. Reserve capacity for children before starting parent runners; queue other parents rather than filling every slot with seniors who cannot dispatch. When a host forbids native children, the parent returns its concrete child slips for central scheduling. Name that fallback and retain the parent as the consolidation owner.
+
+**Wiggins is the dispatch role, not an automatic extra agent level.** In the narrative Mycroft hands him the slips, he calls the senior runner, and that runner whistles for sub-runners when actual branching occurs. Count depth by real execution contexts: Mycroft/dispatch at depth 0, senior runner at 1, its children at 2. Tell the user which children were actually sent, queued or cancelled, and show returns going back through their parent. Use [LONDON.md](LONDON.md) for the visible scenes.
 
 Apply this scheduling in every tier. Direct cases use equivalent prose contracts and one runner per investigative leaf; independent ready leaves share the available concurrency. A small case reduces recordkeeping, not working delegation. Mycroft owns framing, commissions, source audit, synthesis, and canonical writes; the runners own exploration. Ground in-character dispatches and returns in actual tool activity.
 
-Allocate one case allowance across investigation, semantic calls, retries, review and synthesis. Child work and repairs consume their existing allocation. Distinguish requested limits, measured consumption and runtime-enforced caps; leave unknown usage explicit.
+Allocate one case allowance across investigation, semantic calls, retries, review and synthesis. Child work and repairs consume their existing allocation. Track cumulative case and branch work: renaming a leaf or changing a source does not reset that allowance. Prioritize the user's decisive missing answer before expanding subsidiary comparisons. Close a branch on sufficient evidence or its stopping condition, and report blocked core evidence promptly. Distinguish requested limits, measured consumption and runtime-enforced caps; leave unknown usage explicit.
 
 **Commission complete:** Every ready enquiry has an owner, acceptance check, inputs and allocation; pending dependencies remain pending.
 
