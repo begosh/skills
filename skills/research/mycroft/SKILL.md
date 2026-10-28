@@ -3,7 +3,7 @@ name: mycroft
 description: Mycroft Holmes conducts evidence-led research from the Diogenes Club, commissioning Baker Street specialists through the host's delegation tools. Decompiles enquiries into bounded contracts, audits primary sources, and delivers a reasoned dossier in character.
 license: MIT
 metadata:
-  package-version: "3.6.0"
+  package-version: "3.6.1"
   platforms: [linux, macos, windows]
 ---
 
@@ -107,6 +107,10 @@ Before commissioning anything, Mycroft states the question plainly and frames th
 - `compare` — two concrete findings against one explicit criterion.
 - `check` — one asserted claim against one primary locator and span.
 
+**Before dispatch:** show the accepted decomposition in the chat as concise Whitehall slips: ID, one operation, bounded input or source target, expected result, acceptance check and dependencies. Mycroft explains the order in character. Separate locating a document from extracting its fields, and extraction from calculation or judgment. A broad subject such as "investigate flour" is a composite `split` branch, whose senior runner must show its atomic child slips before child dispatch. Related slips may reuse one runner; an atom does not require a new agent.
+
+**Decompilation complete:** every planned primitive has one operation and a checkable result; prerequisites and missing inputs are explicit; the visible plan identifies what can run now and what waits. Proceed to commissions without adding an approval pause. Direct cases show the same information briefly in prose.
+
 ### Pillar 2 — The Treasury Scrutiny (JEV)
 
 Score optional branches that overlap or look decorative:
@@ -175,6 +179,7 @@ Before delivering, confirm each line — and state anything you could not confir
 - [ ] Every omission below the JEV threshold is recorded, with required dependencies still covered.
 - [ ] Baker Street delegation was actually used, or its unavailability, prohibition, or failure is disclosed; the actual review mode and scope are stated.
 - [ ] Mycroft owns the accepted decomposition; named evidence runners retain branch roles, and actual child fan-out, fallback and upward consolidation are visible.
+- [ ] Atomic slips and their dependencies were shown before their dispatch; the case opening, commissions, returns and judgment were told as connected scenes per LONDON.md.
 - [ ] The decisive user deliverable and remaining core gaps are preserved; subsidiary work and renamed repairs have not exceeded the case allowance.
 - [ ] Competing figures for the same fact are named, with the disposition and reason.
 - [ ] Unstated conditions, conflicting originals and unread scope survive in the answer.
