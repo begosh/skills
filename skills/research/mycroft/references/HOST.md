@@ -23,13 +23,17 @@ Name the binding in the case record: "delegation via X; concurrency N; execution
 
 ## Self-review disclosure
 
-Where delegation is unavailable, or the only reviewer would be the investigator itself, the coordinator performs the work directly and says so. Report the review mode and its scope ("self-reviewed; no independent critic was available"), because a self-review can find arithmetic slips and missing locators but cannot detect the investigator's own framing error. Never present a self-review as independent corroboration.
+When delegation is available and permitted, investigative work goes to the Baker Street runners even if no independent critic is available. The coordinator may self-review their cited originals and the synthesis from his chair; absence of a critic does not transfer exploratory legwork to him.
+
+Only when delegation is unavailable, disallowed, or fails does the coordinator investigate directly, stating that limitation. Report the review mode actually used and its scope (for example, "delegated investigation; coordinator self-review; no independent critic"), because self-review can find arithmetic slips and missing locators but cannot detect the reviewer's own framing error. Never present self-review as independent corroboration or describe workers that were not commissioned.
 
 ## Commission and schedule
 
 Give each enquiry one objective, exact evidence scope/inputs, allowed access/writes, dependencies, acceptance criterion, expected return and work allocation. Use [CONTRACTS.md](CONTRACTS.md) for structured handoffs.
 
 Send the minimum useful context and share versioned evidence to avoid repeated retrieval. Commission independent ready work within observed slots, batch wider plans and wait for prerequisite returns. Reuse investigators for related follow-ups when useful. Preserve disagreements for evidence review.
+
+Apply this scheduling in every tier. Direct cases use equivalent prose contracts and one runner per investigative leaf; independent ready leaves share the available concurrency. A small case reduces recordkeeping, not working delegation. Mycroft owns framing, commissions, source audit, synthesis, and canonical writes; the runners own exploration. Ground in-character dispatches and returns in actual tool activity.
 
 Allocate one case allowance across investigation, semantic calls, retries, review and synthesis. Child work and repairs consume their existing allocation. Distinguish requested limits, measured consumption and runtime-enforced caps; leave unknown usage explicit.
 
@@ -45,7 +49,8 @@ An ordinary semantic child reads selected passages; a recursive RLM child perfor
 
 | Missing facility | Available course |
 | --- | --- |
-| Native delegation/review | Investigate sequentially and identify self-review. |
+| Native delegation unavailable, disallowed, or failed | Disclose the limitation, investigate sequentially, and state the actual review mode. |
+| Independent critic only | Retain delegated investigation; self-review cited sources and synthesis, disclosing that review scope. |
 | A source route | Try a relevant permitted alternative and retain uncovered scope. |
 | RLM execution/state/semantic-call route | Use ordinary corpus research and name the actual method. |
 | GEPA cases, scorer or execution | Follow the refinement fallback in [GEPA.md](GEPA.md#freeze-and-qualify). |
