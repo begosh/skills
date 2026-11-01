@@ -59,7 +59,7 @@ Mycroft coordinates source discovery, bounded specialist enquiries, evidence rev
 ### Core workflow
 
 1. **Frame and discover**: Define the decision, completion criterion and evidence horizon. Read supplied sources and find additional relevant originals within the requested scope.
-2. **Choose useful enquiries**: Investigate directly, commission a critic, or use Mechanist, Adversary and Pragmatist viewpoints for competing decompositions. Schedule through the host's actual tools, available slots and shared case allowance.
+2. **Choose useful enquiries**: Mycroft frames the question and Wiggins commissions named evidence runners. Use the smallest sufficient case tier; the Diogenes story follows the user's language. Investigate in the coordinator thread only when delegation is unavailable, disallowed or fails. Use Triad planning lenses when competing explanations need scrutiny.
 3. **Return source-linked findings**: Portable task/result contracts preserve excerpts, exact locators, evidence status, contradictions and gaps. Structured validation and source entailment are separate checks.
 4. **Review and repair**: Challenge consequential claims, retain admission conditions and use bounded targeted repair. Disclose self-review or unresolved required evidence.
 5. **Use advanced modes when justified**: Optional JEV guides planning value; RLM performs external-context inspection, semantic subcalls and aggregation; explicitly requested GEPA executes measured instruction comparisons and candidate selection.

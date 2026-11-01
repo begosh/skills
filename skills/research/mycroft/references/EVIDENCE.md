@@ -37,7 +37,9 @@ For captured corpora, preserve original locators, extraction status and stable s
 
 ## Records and continuation
 
-Use one project-local case record when continuation or a documented run needs it. Keep the brief, evidence map, enquiry/dependency statuses, accepted findings, gaps, allocated/observed work and next step. Link bulky corpora and results. Use [CONTRACTS.md](CONTRACTS.md#publication-and-event-records) for requested structured publication.
+Use one project-local case record for the dossier and continuation. Keep the brief, evidence map, enquiry/dependency statuses, accepted findings, review dispositions, conditions, gaps, allocated/observed work and next step. Link bulky corpora and results. The human-readable and machine-readable dossiers can serve as the case record; a Direct case needs no separate event log or failure ledger. Use [CONTRACTS.md](CONTRACTS.md#publication-and-event-records) for structured publication and [HOST.md](HOST.md#storage-and-execution) for location and storage limitations.
+
+Record every critic-caught defect and every `FAIL` with affected task/claim IDs, the concrete defect, supporting locator or failed check, disposition and remaining scope. Include targeted repairs and their outcomes. This failure packet records an observed problem, not measured instruction improvement.
 
 Provide brief progress at consequential source, dispatch, return, acceptance and recovery events unless quiet output is requested. An event records sequence, phase, actor/enquiry, action, concise grounds, actual outcome/status and locator; add observed timestamps when available. Keep proposed work, returned findings and accepted conclusions distinct. Record outcomes rather than private reasoning or raw secrets.
 

@@ -1,66 +1,66 @@
 # Host capabilities and work limits
 
-Read this reference for delegation, execution allowances or missing host facilities. The coordinator owns acceptance and canonical writes; an investigator may own a separately assigned artifact.
+Read before commissioning. Use current tool metadata and project instructions to establish capabilities; verify configured routes through actual work.
 
 ## Bind capabilities
 
-Inspect the actual source routes, delegation tool, worker slots, agent-role restrictions, execution/retained-state support and writable location needed for the case. Check runner access separately when it matters. Use current tool metadata and project instructions; configured access is not evidence of a successful connection.
+Record the facilities needed for this case:
 
-A behavioral read-only assignment is not an enforced filesystem/network sandbox. Bind code and source access to the host's actual permission boundary.
+| Capability | Establish |
+| --- | --- |
+| Delegation | Permitted mechanism for a scoped worker with its own context, or its absence. Verify the route on the first commission. |
+| Concurrency and depth | Available worker slots, agent-role restrictions and whether workers may commission children. |
+| Execution | Facilities for calculations and checks, retained state and runner access where relevant. |
+| Storage | Permitted writable location, or a read-only limitation. See [storage and execution](#storage-and-execution). |
+| Source access | Available source routes and material access gaps. |
 
-## Capability binding
+A behavioral read-only assignment does not enforce a filesystem or network sandbox. Use the host's actual permission boundaries.
 
-Four capabilities decide the shape of a case. Establish each from the host's live tool metadata and project instructions before commissioning; treat the right-hand column as illustrative only, and verify rather than assume.
+Binding is complete when each required facility has an observed route or an explicit limitation.
 
-| Capability | Question to answer | Typical mechanisms (verify per host) |
-| --- | --- | --- |
-| Delegation | Can this host spawn a scoped child with its own context? | A subagent/Task-style tool, a delegation call, a worker pool, an external runner process, or none |
-| Concurrency | How many children run at once, and is there a native depth limit? | Parallel-call slots, native recursion, or a flat team where recursion must be emulated by scheduled calls |
-| Execution | Can a child run code and read retained state? | A shell/code tool with persistent or ephemeral state, or no execution at all |
-| Storage | Where may outputs be written? | Project-relative artifact directory, a session run directory, or read-only |
+## Investigation and review roles
 
-Name the binding in the case record: "delegation via X; concurrency N; execution Y; writes to Z". An unverified route is not a capability — test it on the first commission and fall back explicitly if it fails.
+In every tier, evidence runners perform exploration when delegation works and is permitted. The coordinator owns framing, decomposition, cited-original audit, acceptance, synthesis and canonical writes. A runner may write a separately assigned artifact.
 
-## Self-review disclosure
+Only unavailable, disallowed or failed delegation permits coordinator investigation. Disclose that fallback. An absent independent critic permits coordinator self-review, but does not transfer exploration to the coordinator.
 
-When delegation is available and permitted, investigative work goes to the Baker Street runners even if no independent critic is available. The coordinator may self-review their cited originals and the synthesis from his chair; absence of a critic does not transfer exploratory legwork to him.
-
-Only when delegation is unavailable, disallowed, or fails does the coordinator investigate directly, stating that limitation. Report the review mode actually used and its scope (for example, "delegated investigation; coordinator self-review; no independent critic"), because self-review can find arithmetic slips and missing locators but cannot detect the reviewer's own framing error. Never present self-review as independent corroboration or describe workers that were not commissioned.
+State the actual review mode and scope, such as "delegated investigation; coordinator self-review; no independent critic". Self-review is not independent corroboration and may retain the investigator's framing errors. Describe only workers actually commissioned.
 
 ## Commission and schedule
 
-Give each enquiry one objective, exact evidence scope/inputs, allowed access/writes, dependencies, acceptance criterion, expected return and work allocation. Use [CONTRACTS.md](CONTRACTS.md) for structured handoffs.
+Use [CONTRACTS.md](CONTRACTS.md) for commission content. Send the minimum useful context and share versioned evidence to avoid repeated retrieval.
 
-Mycroft owns the initial question decomposition and its required outputs. Planning perspectives advise that decision; they are not evidence runners. Close any delegated planning critique when its plan is accepted, then commission fresh investigative contexts with concrete mission names. Reuse an investigator for related work inside its evidence branch, rather than cycling planning personas through unrelated searches.
+Close planning critics when Mycroft accepts the plan. Start evidence work in fresh runner contexts with concrete missions; reuse an evidence runner for related slips within its branch. Each slip remains atomic. One runner can handle several dependent slips, so Direct cases need no extra worker for each operation.
 
-Send the minimum useful context and share versioned evidence to avoid repeated retrieval. Commission independent ready work within observed slots, batch wider plans and wait for prerequisite returns. Preserve disagreements for evidence review.
+Dispatch independent ready tasks within available slots; queue wider plans and wait for prerequisites. Preserve branch ownership when reusing workers.
 
-For a composite branch, use an explicit `split` commission: the senior runner owns named atomic child contracts, bounded source territory, consolidation and a branch-wide allocation. Prefer native child dispatch when permitted. Reserve capacity for children before starting parent runners; queue other parents rather than filling every slot with seniors who cannot dispatch. When a host forbids native children, the parent returns its concrete child slips for central scheduling. Name that fallback and retain the parent as the consolidation owner.
+For a useful composite branch, apply [RLM.md](RLM.md). Reserve child capacity before starting parent runners; queue other parents rather than filling all slots with seniors waiting to dispatch. Prefer native child dispatch when permitted and supported. Otherwise, the senior returns child slips for central scheduling and retains consolidation ownership. Disclose that fallback. [LONDON.md](LONDON.md) defines its narrative.
 
-**Wiggins is the dispatch role, not an automatic extra agent level.** In the narrative Mycroft hands him the slips, he calls the senior runner, and that runner whistles for sub-runners when actual branching occurs. Count depth by real execution contexts: Mycroft/dispatch at depth 0, senior runner at 1, its children at 2. Tell the user which children were actually sent, queued or cancelled, and show returns going back through their parent. Use [LONDON.md](LONDON.md) for the visible scenes.
+Allocate one allowance across planning, investigation, semantic calls, review, repairs and synthesis. Descendants consume their branch allocation. Renaming a task or changing a source does not reset either allowance. Prioritize the decisive missing answer before subsidiary comparisons.
 
-Apply this scheduling in every tier. Direct cases use equivalent prose contracts and one runner per investigative leaf; independent ready leaves share the available concurrency. A small case reduces recordkeeping, not working delegation. Mycroft owns framing, commissions, source audit, synthesis, and canonical writes; the runners own exploration. Ground in-character dispatches and returns in actual tool activity.
+Stop a branch when its acceptance check is satisfied, its stopping condition applies or its allowance is spent. Report blocked core evidence and uncovered scope. Distinguish requested limits, observed consumption and runtime-enforced caps; leave unknown usage explicit.
 
-Allocate one case allowance across investigation, semantic calls, retries, review and synthesis. Child work and repairs consume their existing allocation. Track cumulative case and branch work: renaming a leaf or changing a source does not reset that allowance. Prioritize the user's decisive missing answer before expanding subsidiary comparisons. Close a branch on sufficient evidence or its stopping condition, and report blocked core evidence promptly. Distinguish requested limits, measured consumption and runtime-enforced caps; leave unknown usage explicit.
+Scheduling is complete when every ready task has an owner, inputs, acceptance check and allocation, and dependent tasks remain pending.
 
-**Commission complete:** Every ready enquiry has an owner, acceptance check, inputs and allocation; pending dependencies remain pending.
+## Storage and execution
 
-## Native depth and semantic calls
+Choose one permitted output directory at the work root: `./artifacts/` or `.mycroft/runs/<timestamp>/`, unless project conventions specify another. Keep outputs outside the corpus being inspected. Write human-readable and machine-readable dossiers there; [EVIDENCE.md](EVIDENCE.md#records-and-continuation) defines their content.
 
-Native worker slots, parallel calls, recursion depth and total work are separate controls. Under a flat-team policy, an investigator sends a bounded semantic request to the coordinator, who dispatches the permitted leaf call and returns its evidence.
+If storage is read-only, deliver the supported answer in chat, state that artifacts could not be saved and claim no artifact path. Re-read files before reporting them as saved.
 
-An ordinary semantic child reads selected passages; a recursive RLM child performs another external-context loop. Algorithmic recursion can therefore use centrally scheduled calls without native grandchildren.
+Run deterministic calculations and checks through the host's execution facility. Without execution, mark those tasks unexecuted and retain the resulting gap. Use existing facilities; new runtime infrastructure needs separate justification and authorization.
 
-## Missing capability and cancellation
+## Missing facilities and cancellation
 
-| Missing facility | Available course |
+| Missing facility | Course |
 | --- | --- |
-| Native delegation unavailable, disallowed, or failed | Disclose the limitation, investigate sequentially, and state the actual review mode. |
-| Independent critic only | Retain delegated investigation; self-review cited sources and synthesis, disclosing that review scope. |
-| A source route | Try a relevant permitted alternative and retain uncovered scope. |
-| RLM execution/state/semantic-call route | Use ordinary corpus research and name the actual method. |
-| GEPA cases, scorer or execution | Follow the refinement fallback in [GEPA.md](GEPA.md#freeze-and-qualify). |
+| Delegation unavailable, disallowed or failed | Disclose it and investigate sequentially; state actual review mode. |
+| Independent critic | Keep delegated investigation and disclose coordinator self-review. |
+| Source route | Try a relevant permitted alternative and retain uncovered scope. |
+| RLM execution, state or semantic-call route | Use ordinary corpus research and name the actual method. |
+| GEPA cases, scorer or execution | Use [GEPA's fallback](GEPA.md#freeze-and-qualify). |
+| Storage or execution | Apply [storage and execution](#storage-and-execution). |
 
-On cancellation, stop commissioning and request termination where supported. Report termination only when confirmed. Unavailable required work stays an unmet requirement in the final result.
+Under a flat-team policy, workers return bounded child or semantic requests for central scheduling. Selected-passage calls and recursive external-context loops remain distinct methods under [RLM.md](RLM.md#semantic-subcalls).
 
-Use existing execution facilities for ordinary cases. Introduce runtime infrastructure only when separately justified and authorized.
+On cancellation, stop commissioning and request termination where supported. Report termination only when confirmed. Unavailable required work remains an unmet requirement.
