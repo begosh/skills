@@ -49,6 +49,7 @@ Copy or link the skill into your local skills directory:
 | Skill | Category | Description |
 | :--- | :--- | :--- |
 | **[mycroft](skills/research/mycroft/SKILL.md)** | `research` | Evidence-led research with source discovery, bounded specialists, Triad decomposition and review; optional RLM and measured GEPA. |
+| **[social-scriptcraft](skills/productivity/social-scriptcraft/SKILL.md)** | `productivity` | Research-backed social video scripts with creator profiles, A/V direction, teleprompter text and publishing metadata. Swedish instructions; output follows the user's language and voice. |
 
 ---
 
